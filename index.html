@@ -1,0 +1,16 @@
+<input id="lingua" placeholder="lingua">
+<button id="start">começar</button>
+<script>
+function assistente(lingua){
+var fala=new SpeechRecognition()
+fala.onresult=(event)=>{
+var resultados=event.results[0][0].transcript
+alert("digitaste: "+resultados)
+}
+fala.lang=lingua
+fala.start()
+}
+document.getElementById("start").addEventListener("click", () => {
+assistente(document.getElementById("lingua").value)
+})
+</script>
